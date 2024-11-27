@@ -3,6 +3,10 @@ import numpy as np
 
 class rgbColor(Color):
 
+    '''
+    RGB-model color class
+    '''
+
     RGB_MAX_DEPTH = 255
 
     def __init__(self, 
@@ -48,6 +52,13 @@ class rgbColor(Color):
     @classmethod
     def to_string(cls, 
                   channel_values: np.ndarray | list[int]) -> str:
+
+        '''
+        Converts rgb-channel list or ndarray to  rgb-like string (#xxxxxx)
+
+        args:
+        channel_values: np.ndarray or list[int] - array of channel values
+        '''
         
         output_string = '#'
 

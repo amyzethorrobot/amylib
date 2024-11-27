@@ -2,6 +2,10 @@ import numpy as np
 
 class Color:
 
+    '''
+    Base Color class
+    '''
+
     @staticmethod
     def clamp(channel_values: np.ndarray, 
               max_val: int, 
@@ -20,6 +24,13 @@ class Color:
     def __init__(self, 
                  channel_values: np.ndarray, 
                  max_depth: np.ndarray):
+
+        '''
+        args:
+
+        channel_values: np.ndarray - array of channel values for each color channel
+        max_depth: np.ndarray - maximum value for each channel
+        '''
         
         self.__channel_values = Color.clamp(channel_values, max_depth)
         self.__max_depth = max_depth
