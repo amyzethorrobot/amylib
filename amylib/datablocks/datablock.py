@@ -2,6 +2,14 @@ import numpy as np
 
 class DataBlock:
 
+    '''
+    Base data block class 
+    which implements basic functions to iterate through data 
+    and store/process some hyperparameters of an experiment 
+    '''
+
+    DEFAULT_ITERATION_STEP = 1
+
     def __init__(self, 
                  feature_dict: dict,
                  block_type: str = 'default',
@@ -10,7 +18,7 @@ class DataBlock:
 
         self.__feature_dict = feature_dict
         self.__active_index = 0
-        self.__iteration_step = 1
+        self.__iteration_step = DEFAULT_ITERATION_STEP
         self.__type = block_type
         self.__name = block_name
 
@@ -87,6 +95,11 @@ class DataBlock:
     ## other
 
     def reset_active_index(self):
+
+        '''
+        Resets current iteration index to 0
+        '''
+        
         self.__active_index = 0
 
     def add_feature(self, feature_name: str, feature_value):
@@ -99,6 +112,17 @@ class DataBlock:
 
     def next(self, step: int | None = None):
 
+        '''
+        Method for iterating through data series. 
+        Returns data at current index 
+        and then increases index value by step
+
+        args:
+
+        step: int or None - iteration step.
+        If None then default value is used
+        '''
+
         if isinstance(self.__data, type(None)):
             raise RuntimeError('DataBlock is empty')
 
@@ -108,6 +132,10 @@ class DataBlock:
         return self.__data[prev_index]
 
     def current(self):
+
+        ''' 
+        Returns data at current index
+        '''
 
         if isinstance(self.__data, type(None)):
             raise RuntimeError('DataBlock is empty')
