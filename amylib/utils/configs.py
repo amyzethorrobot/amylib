@@ -2,6 +2,10 @@ import json
 
 class Config:
 
+    '''
+    Class for managing json configs
+    '''
+
     def __init__(self, config_path):
 
         try:
