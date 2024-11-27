@@ -108,6 +108,14 @@ class Palette:
     def preview(self, 
                 line_size: int = 10):
 
+        '''
+        Draws all colors in a palette as 2d grid in plt.figure
+
+        args:
+
+        line_size: int - number of colors in a row
+        '''
+
         if self.__length%line_size == 0: 
             lines = self.__length//line_size 
         else:
