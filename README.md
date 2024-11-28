@@ -15,10 +15,12 @@
 
 ## Installation
 
+### Linux/MacOS
+
 ```shell
 git clone https://github.com/amyzethorrobot/amylib.git
 ```
 
 ```shell
-python3 -m pip install -e $PATH_TO_CLONED_AMYLIB$
+python3 -m pip install ./amylib
 ```
