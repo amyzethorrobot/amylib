@@ -11,6 +11,7 @@ setup(name="amylib",
       description = DESCRIPTION,
       long_description = LONG_DESCRIPTION,
       packages = find_packages(exclude=('tests')),
+      package_data={"":["*.json"]},
       install_requires = [], 
       keywords = ['python'],
       classifiers = [
