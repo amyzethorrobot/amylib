@@ -11,7 +11,7 @@
 ## Dependencies
 
 - numpy - 1.24.1 or higher
-- matplotlib
+- matplotlib - 3.6.3 or higher
 
 ## Installation
 
@@ -22,5 +22,5 @@ git clone https://github.com/amyzethorrobot/amylib.git
 ```
 
 ```shell
-python3 -m pip install ./amylib
+pip install ./amylib
 ```
