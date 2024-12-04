@@ -4,9 +4,13 @@ from . import Palette
 from . import rgbColor
 from ..utils.misc import pwd_str
 from ..utils.configs import Config
+import importlib.resources as impres
+from . import rgb_palettes 
+from .. import configdata
 
-palette_config = Config(os.path.join(pwd_str(__file__), 
-                                     "palette_conf.json"))
+PALETTE_CONF_PATH = impres.files(configdata).joinpath('palette_conf.json')
+PALETTES_PATH = impres.files(rgb_palettes)
+palette_config = Config(PALETTE_CONF_PATH)
 
 class rgbPalette(Palette):
 
@@ -84,6 +88,4 @@ class rgbPalette(Palette):
             raise ValueError("Palette with name \"{}\" doesnt exist".format(name))
         
         else:
-            return cls.load(os.path.join(pwd_str(__file__), 
-                                         "rgb_palettes",
-                                         name + ".json"))
+            return cls.load(PALETTES_PATH.joinpath(name + '.json'))
